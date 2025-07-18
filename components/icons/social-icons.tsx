@@ -4,6 +4,7 @@ import { DiscordIcon } from "./discord-icon"
 import { TikTokIcon } from "./tiktok-icon"
 import { InstagramIcon } from "./instagram-icon"
 
+// X (Twitter) Icon Component
 export function XIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -12,4 +13,45 @@ export function XIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-export { DiscordIcon, Youtube as YouTubeIcon, XIcon as TwitterIcon, TikTokIcon, InstagramIcon }
+// Twitter Icon (alias for X Icon for backward compatibility)
+export function TwitterIcon(props: React.SVGProps<SVGSVGElement>) {
+  return <XIcon {...props} />
+}
+
+// YouTube Icon (imported from lucide-react)
+export const YoutubeIcon = Youtube
+
+// Twitch Icon Component
+export function TwitchIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m4 4V7" />
+    </svg>
+  )
+}
+
+// Re-export all individual icons for easy importing
+export { DiscordIcon, TikTokIcon, InstagramIcon }
+
+// Export all icons as a group for convenience
+export const SocialIcons = {
+  Discord: DiscordIcon,
+  Instagram: InstagramIcon,
+  TikTok: TikTokIcon,
+  Twitch: TwitchIcon,
+  Twitter: TwitterIcon,
+  X: XIcon,
+  YouTube: YoutubeIcon,
+  Youtube: YoutubeIcon, // Alternative naming
+}
